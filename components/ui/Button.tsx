@@ -49,7 +49,7 @@ export function Button({
             )}
             {...props}
         >
-            {children}
+            {children as any}
             {Icon && <Icon className="ml-2 w-5 h-5" />}
         </motion.button>
     );
