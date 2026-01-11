@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  /* Neon Colors */
+  --color-neon-green: #00FF94;
+  --color-neon-purple: #BC13FE;
+  --color-neon-red: #FF2E2E;
+  --color-neon-blue: #2E5CFF;
+
+  /* Dark Theme Colors */
+  --color-dark-bg: #050505;
+  --color-dark-card: #0F0F0F;
+  --color-dark-border: #1F1F1F;
+
+  /* Fonts */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  /* Shadows */
+  --shadow-neon-green: 0 0 20px rgba(0, 255, 148, 0.3);
+  --shadow-neon-purple: 0 0 20px rgba(188, 19, 254, 0.3);
+}
+
+/* Custom Utilities (Legacy/Manual) */
+.text-glow-green {
+  text-shadow: 0 0 10px rgba(0, 255, 148, 0.5);
+}
+
+.text-glow-purple {
+  text-shadow: 0 0 10px rgba(188, 19, 254, 0.5);
+}
+
+/* Base Styles */
+:root {
+  --background: #050505;
+  --foreground: #ededed;
+}
+
+body {
+  background-color: var(--color-dark-bg);
+  color: var(--foreground);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1F1F1F;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00FF94;
+}
