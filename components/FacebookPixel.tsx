@@ -4,15 +4,27 @@ import { useEffect, Suspense } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import Script from 'next/script';
 
-const PIXEL_ID = '1500870274801494';
+const PIXEL_ID = process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID;
 
 function PixelEvents() {
     const pathname = usePathname();
     const searchParams = useSearchParams();
 
     useEffect(() => {
-        if (typeof window !== 'undefined' && (window as any).fbq) {
+        if (typeof window !== 'undefined' && (window as any).fbq && PIXEL_ID) {
+            // Browser Pixel event
             (window as any).fbq('track', 'PageView');
+
+            // Server-side CAPI event
+            fetch('/api/facebook/capi', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    eventName: 'PageView',
+                }),
+            }).catch(err => console.error('Error sending CAPI event:', err));
         }
     }, [pathname, searchParams]);
 
@@ -20,6 +32,8 @@ function PixelEvents() {
 }
 
 export default function FacebookPixel() {
+    if (!PIXEL_ID) return null;
+
     return (
         <>
             <Script
