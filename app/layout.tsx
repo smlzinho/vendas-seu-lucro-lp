@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 
 import FacebookPixel from "@/components/FacebookPixel";
+import BackRedirect from "@/components/BackRedirect";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -18,8 +20,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${inter.variable} font-sans antialiased bg-dark-bg text-white`}>
+      <head>
+        <Script
+          src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+          data-utmify-prevent-xcod-sck
+          data-utmify-prevent-subids
+          strategy="lazyOnload"
+        />
+      </head>
+      <body className={`${inter.variable} font-sans antialiased`}>
         <FacebookPixel />
+        <BackRedirect />
         {children}
       </body>
     </html>

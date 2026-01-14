@@ -48,7 +48,7 @@ export function AggressiveCTA() {
                             fullWidth
                             icon={ArrowRight}
                             className="bg-neon-green text-black hover:bg-[#00D47A] border-none"
-                            onClick={() => window.location.href = 'https://omniinvestia.com.br/login-kiwify'}
+                            onClick={() => window.location.href = 'https://suas-vendas-seu-lucro-dnjgbb8bs-samuels-projects-59b087e2.vercel.app/login-kiwify'}
                         >
                             LOGAR AGORA
                         </Button>
